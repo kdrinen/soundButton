@@ -1,0 +1,55 @@
+html, body{
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+}
+
+
+
+h1{color: #FF0000;
+   font-size: 10vw;
+  /*font-size: 600%;*/
+}
+
+
+
+#myQuote{color: #fff;
+  margin: 5px; padding: 5px;
+}
+
+
+
+.Title{text-align: center; font-family: 'Fredericka the Great', cursive; display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #000000; height: 100%;
+    width: 100%;
+}
+
+
+
+.content{
+  display: none;
+}
+
+.pics{display: -webkit-flex;
+   display: flex;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-flex-wrap: wrap;
+   flex-wrap: wrap;
+   -webkit-flex-flow: row wrap;
+   flex-flow: row wrap;
+   -webkit-align-content: flex-end;
+   align-content: flex-end;}
+
+img{margin: 10px;}
+
+.tab { display:none; background: #000; color: #FF0000; cursor:pointer; font-family: 'Fredericka the Great', cursive; margin: 1% 5%;}
+.tab div { display:none; color: #FFF; margin: 3% 30% 1% 1%; 
+}

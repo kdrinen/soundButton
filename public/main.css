@@ -48,8 +48,13 @@ h1{color: #FF0000;
    -webkit-align-content: flex-end;
    align-content: flex-end;}
 
-img{margin: 10px;}
+.circle{
+  margin: 10px;
+  border-radius: 50%;
+width: 200px;
+height: 200px; background-color: blue;
+}
 
 .tab { display:none; background: #000; color: #FF0000; cursor:pointer; font-family: 'Fredericka the Great', cursive; margin: 1% 5%;}
-.tab div { display:none; color: #FFF; margin: 3% 30% 1% 1%; 
+.tab div { display:none; color: #FFF; margin: 3% 30% 1% 1%;
 }

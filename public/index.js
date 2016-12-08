@@ -22,7 +22,7 @@ $(".Title").delay(3500).fadeOut(2500);
 $(".content").delay(3500).fadeIn(2500);
 $(".tab").delay(3500).fadeIn(2500);
 
-pixelateCLICK(0, '#kiss','images/1.jpg', 'images/a.png' )
+pixelateCLICK(0, '#kiss','images/1.jpg', 'images/a.png', 'audio/sound.mp3' )
 pixelateCLICK(1, '#cry','images/2.jpg', 'images/b.png' )
 pixelateCLICK(2, '#eat','images/3.jpg', 'images/c.png' )
 pixelateCLICK(3, '#cross1','images/4.jpg', 'images/d.png' )
@@ -48,7 +48,7 @@ pixelateCLICK(22, '#feet','images/23.jpg', 'images/w.png' )
 pixelateCLICK(23, '#urinal','images/24.jpg', 'images/x.png' )
 pixelateCLICK(24, '#old','images/25.jpg', 'images/y.png' )
 
-pixelateUPDATE(0, '#kiss','images/1.jpg', 'images/a.png' )
+pixelateUPDATE(0, '#kiss','images/1.jpg', 'images/a.png', 'audio/sound.mp3' )
 pixelateUPDATE(1, '#cry','images/2.jpg', 'images/b.png' )
 pixelateUPDATE(2, '#eat','images/3.jpg', 'images/c.png' )
 pixelateUPDATE(3, '#cross1','images/4.jpg', 'images/d.png' )
@@ -74,8 +74,34 @@ pixelateUPDATE(22, '#feet','images/23.jpg', 'images/w.png' )
 pixelateUPDATE(23, '#urinal','images/24.jpg', 'images/x.png' )
 pixelateUPDATE(24, '#old','images/25.jpg', 'images/y.png' )
 
+// pixelateAUDIO(0, '#kiss','images/1.jpg', 'images/a.png', 'audio/sound.mp3' )
+// pixelateAUDIO(1, '#cry','images/2.jpg', 'images/b.png', 'audio/sound.mp3' )
+// pixelateAUDIO(2, '#eat','images/3.jpg', 'images/c.png' )
+// pixelateAUDIO(3, '#cross1','images/4.jpg', 'images/d.png' )
+// pixelateAUDIO(4, '#cross2','images/5.jpg', 'images/e.png' )
+// pixelateAUDIO(5, '#nun','images/6.jpg', 'images/f.png' )
+// pixelateAUDIO(6, '#smoke','images/7.jpg', 'images/g.png' )
+// pixelateAUDIO(7, '#cross3','images/8.jpg', 'images/h.png' )
+// pixelateAUDIO(8, '#cross4','images/9.jpg', 'images/i.png' )
+// pixelateAUDIO(9, '#cross5','images/10.jpg', 'images/j.png' )
+// pixelateAUDIO(10, '#tape','images/11.jpg', 'images/k.png' )
+// pixelateAUDIO(11, '#stupid','images/12.jpg', 'images/l.png' )
+// pixelateAUDIO(12, '#gma','images/13.jpg', 'images/m.png' )
+// pixelateAUDIO(13, '#seat','images/14.jpg', 'images/n.png' )
+// pixelateAUDIO(14, '#skull','images/15.jpg', 'images/o.png' )
+// pixelateAUDIO(15, '#pathetic','images/16.jpg', 'images/p.png' )
+// pixelateAUDIO(16, '#pee','images/17.jpg', 'images/q.png' )
+// pixelateAUDIO(17, '#puppet','images/18.jpg', 'images/r.png' )
+// pixelateAUDIO(18, '#gun','images/19.jpg', 'images/s.png' )
+// pixelateAUDIO(19, '#bitch','images/20.jpg', 'images/t.png' )
+// pixelateAUDIO(20, '#fat','images/21.jpg', 'images/u.png' )
+// pixelateAUDIO(21, '#bomb','images/22.jpg', 'images/v.png' )
+// pixelateAUDIO(22, '#feet','images/23.jpg', 'images/w.png' )
+// pixelateAUDIO(23, '#urinal','images/24.jpg', 'images/x.png' )
+// pixelateAUDIO(24, '#old','images/25.jpg', 'images/y.png' )
 
-function pixelateCLICK(id, selector, source, pixelated){
+
+function pixelateCLICK(id, selector, source, pixelated, audio){
 
   $(selector).click(function(){ //click ONLY effects click function and not updates for every user
     socket.emit('getPosition',id)//find initial position
@@ -87,6 +113,7 @@ function pixelateCLICK(id, selector, source, pixelated){
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
+            $(selector).attr('src', audio)
         }
       }
     })
@@ -95,7 +122,7 @@ function pixelateCLICK(id, selector, source, pixelated){
   })
 }
 
-function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushed out to every user...both in real time and on initial page load
+function pixelateUPDATE(id, selector, source, pixelated, audio){//Effects what is pushed out to every user...both in real time and on initial page load
 
     socket.on('UDmyStatus',function(myStatus){
       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated

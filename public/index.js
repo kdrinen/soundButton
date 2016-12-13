@@ -200,5 +200,4 @@ function toneUPDATE(id, audioSelector, source){//Effects what is pushed out to e
         }
       }
     })
-}
 });

@@ -86,13 +86,13 @@ function pixelateCLICK(id, selector, source, pixelated){
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-
         }
       }
-    });
+    })
 
 
   })
+}
 
 function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushed out to every user...both in real time and on initial page load
 
@@ -105,8 +105,8 @@ function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushe
         }
       }
     })
-  }
-  });
+}
+});
 
   $(function(){
 

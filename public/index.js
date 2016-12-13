@@ -110,7 +110,7 @@ function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushe
       }
     })
 }
-})
+});
 
 
 
@@ -199,5 +199,5 @@ function toneUPDATE(id, audioSelector, source){//Effects what is pushed out to e
           $(audioSelector).get(0).play()
         }
       }
-    }
+    })
   });

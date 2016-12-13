@@ -1,12 +1,6 @@
 
 //drop down tab
 $(function() {
-    $('.tab').click(function() {
-        $(this).find('div').slideToggle();
-    });
-});
-
-$(function(){
 
   // var socket = io.connect('http://150.253.89.109:3100')
     var socket = io.connect()
@@ -22,7 +16,7 @@ $(".Title").delay(3500).fadeOut(2500);
 $(".content").delay(3500).fadeIn(2500);
 $(".tab").delay(3500).fadeIn(2500);
 
-pixelateCLICK(0, '#kiss','#kissaudio','images/1.jpg', 'images/a.png', 'audio/432.mp3' )
+pixelateCLICK(0, '#kiss','images/1.jpg', 'images/a.png', 'audio/432.mp3' )
 pixelateCLICK(1, '#cry','images/2.jpg', 'images/b.png', 'audio/495.mp3' )
 pixelateCLICK(2, '#eat','images/3.jpg', 'images/c.png', 'audio/500.mp3' )
 pixelateCLICK(3, '#cross1','images/4.jpg', 'images/d.png', 'audio/555.mp3' )
@@ -110,11 +104,10 @@ function pixelateCLICK(id, selector, source, pixelated, audioSelector){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          $(audioSelector).get(0).pause()
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $(audioSelector).get(0).play()
+
 
         }
       }
@@ -130,10 +123,8 @@ function pixelateUPDATE(id, selector, source, pixelated, audioSelector){//Effect
       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push unpixelated image to all users
-          $(audioSelector).get(0).pause()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', pixelated)//Push pixelated image to all users
-          $(audioSelector).get(0).play()
         }
       }
     })

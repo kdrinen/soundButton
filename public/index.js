@@ -22,7 +22,7 @@ $(".Title").delay(3500).fadeOut(2500);
 $(".content").delay(3500).fadeIn(2500);
 $(".tab").delay(3500).fadeIn(2500);
 
-pixelateCLICK(0, '#kiss','images/1.jpg', 'images/a.png', 'audio/432.mp3' )
+pixelateCLICK(0, '#kiss','#kissaudio','images/1.jpg', 'images/a.png', 'audio/432.mp3' )
 pixelateCLICK(1, '#cry','images/2.jpg', 'images/b.png', 'audio/495.mp3' )
 pixelateCLICK(2, '#eat','images/3.jpg', 'images/c.png', 'audio/500.mp3' )
 pixelateCLICK(3, '#cross1','images/4.jpg', 'images/d.png', 'audio/555.mp3' )

@@ -110,7 +110,7 @@ function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushe
       }
     })
 }
-});
+}
 
 
 

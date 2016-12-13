@@ -23,7 +23,7 @@ $(".content").delay(3500).fadeIn(2500);
 $(".tab").delay(3500).fadeIn(2500);
 
 pixelateCLICK(0, '#kiss','#kissaudio','images/1.jpg', 'images/a.png', 'audio/432.mp3' )
-pixelateCLICK(1, '#cry', '#cry','images/2.jpg', 'images/b.png', 'audio/495.mp3' )
+pixelateCLICK(1, '#cry','images/2.jpg', 'images/b.png', 'audio/495.mp3' )
 pixelateCLICK(2, '#eat','images/3.jpg', 'images/c.png', 'audio/500.mp3' )
 pixelateCLICK(3, '#cross1','images/4.jpg', 'images/d.png', 'audio/555.mp3' )
 pixelateCLICK(4, '#cross2','images/5.jpg', 'images/e.png', 'audio/680.mp3' )
@@ -110,11 +110,11 @@ function pixelateCLICK(id, selector, source, pixelated, audioSelector){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          $(audioSelector).get(0).pause()
+          $('#audioSelector').get(0).pause()
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $(audioSelector).get(0).play()
+          $('#audioSelector').get(0).play()
 
         }
       }

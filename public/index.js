@@ -74,48 +74,6 @@ pixelateUPDATE(22, '#feet','images/23.jpg', 'images/w.png')
 pixelateUPDATE(23, '#urinal','images/24.jpg', 'images/x.png')
 pixelateUPDATE(24, '#old','images/25.jpg', 'images/y.png' )
 
-
-function pixelateCLICK(id, selector, source, pixelated){
-
-  $(selector).click(function(){ //click ONLY effects click function and not updates for every user
-    socket.emit('getPosition',id)//find initial position
-    socket.on('GPmyStatus',function(myStatus){
-      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
-        if(myStatus.status === true  ){//is status true? If not, stop here
-          socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
-          $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-        }else if( myStatus.status === false){//is status false? If not, stop here
-          socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
-          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-
-        }
-      }
-    })
-
-
-  })
-}
-
-function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushed out to every user...both in real time and on initial page load
-
-    socket.on('UDmyStatus',function(myStatus){
-      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
-        if(myStatus.status === true  ){//If image's status is true...
-          $(selector).attr('src', source)//Push unpixelated image to all users
-          $(audioSelector).get(0).pause()
-        }else if( myStatus.status === false){//If image's status is false...
-          $(selector).attr('src', pixelated)//Push pixelated image to all users
-          $(audioSelector).get(0).play()
-        }
-      }
-    })
-}
-}
-
-
-
-
-
 toneCLICK(0, '#kiss','images/1.jpg', 'audio/432.mp3' )
 toneCLICK(1, '#cryaudio','images/2.jpg', 'audio/495.mp3' )
 toneCLICK(2, '#eataudio', 'audio/500.mp3' )
@@ -167,6 +125,41 @@ toneUPDATE(22, '#feet','images/23.jpg', 'images/w.png', 'audio/632.mp3' )
 toneUPDATE(23, '#urinal','images/24.jpg', 'images/x.png', 'audio/2288.mp3' )
 toneUPDATE(24, '#old','images/25.jpg', 'images/y.png', 'audio/1300.mp3' )
 
+function pixelateCLICK(id, selector, source, pixelated){
+
+  $(selector).click(function(){ //click ONLY effects click function and not updates for every user
+    socket.emit('getPosition',id)//find initial position
+    socket.on('GPmyStatus',function(myStatus){
+      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
+        if(myStatus.status === true  ){//is status true? If not, stop here
+          socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
+          $(selector).attr('src', source)//Switch image back to true and show unpixelated image
+        }else if( myStatus.status === false){//is status false? If not, stop here
+          socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
+          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
+
+        }
+      }
+    });
+
+
+  })
+
+function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushed out to every user...both in real time and on initial page load
+
+    socket.on('UDmyStatus',function(myStatus){
+      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
+        if(myStatus.status === true  ){//If image's status is true...
+          $(selector).attr('src', source)//Push unpixelated image to all users
+          $(audioSelector).get(0).pause()
+        }else if( myStatus.status === false){//If image's status is false...
+          $(selector).attr('src', pixelated)//Push pixelated image to all users
+          $(audioSelector).get(0).play()
+        }
+      }
+    })
+}
+}
 
 function toneCLICK(id, audioSelector, source, pixelated){
 
@@ -200,4 +193,5 @@ function toneUPDATE(id, audioSelector, source){//Effects what is pushed out to e
         }
       }
     })
-  });
+  }
+});

@@ -23,7 +23,7 @@ $(".content").delay(3500).fadeIn(2500);
 $(".tab").delay(3500).fadeIn(2500);
 
 pixelateCLICK(0, '#kiss','#kissaudio','images/1.jpg', 'images/a.png', 'audio/432.mp3' )
-pixelateCLICK(1, '#cry','images/2.jpg', 'images/b.png', 'audio/495.mp3' )
+pixelateCLICK(1, '#cry', '#cry','images/2.jpg', 'images/b.png', 'audio/495.mp3' )
 pixelateCLICK(2, '#eat','images/3.jpg', 'images/c.png', 'audio/500.mp3' )
 pixelateCLICK(3, '#cross1','images/4.jpg', 'images/d.png', 'audio/555.mp3' )
 pixelateCLICK(4, '#cross2','images/5.jpg', 'images/e.png', 'audio/680.mp3' )
@@ -66,7 +66,7 @@ pixelateUPDATE(14, '#skull','images/15.jpg', 'images/o.png', 'audio/1777.mp3' )
 pixelateUPDATE(15, '#pathetic','images/16.jpg', 'images/p.png', 'audio/1850.mp3' )
 pixelateUPDATE(16, '#pee','images/17.jpg', 'images/q.png', 'audio/2200.mp3' )
 pixelateUPDATE(17, '#puppet','images/18.jpg', 'images/r.png', 'audio/525.mp3' )
-pixelateUPDATE(18, '#gun','images/19.jpg', 'images/s.png', 'audio/1920.mp3' )
+pixelateUPDATE(18, '#gun','images/19.jpg', 'images/s.png', 'audio/1910.mp3' )
 pixelateUPDATE(19, '#bitch','images/20.jpg', 'images/t.png', 'audio/2323.mp3' )
 pixelateUPDATE(20, '#fat','images/21.jpg', 'images/u.png', 'audio/1111.mp3' )
 pixelateUPDATE(21, '#bomb','images/22.jpg', 'images/v.png', 'audio/989.mp3' )

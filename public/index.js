@@ -151,10 +151,8 @@ function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushe
       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push unpixelated image to all users
-          $(audioSelector).get(0).pause()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', pixelated)//Push pixelated image to all users
-          $(audioSelector).get(0).play()
         }
       }
     })

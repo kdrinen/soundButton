@@ -83,7 +83,7 @@ function pixelateCLICK(id, selector, source, pixelated){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          $('#kissaudio').get('#kiss').pause()
+          $('#kissaudio').get(0).pause()
           // $('#cryaudio').get(1).pause()
           // $('#cryaudio').get(2).pause()
           // $('#eataudio').get(3).pause()
@@ -112,7 +112,7 @@ function pixelateCLICK(id, selector, source, pixelated){
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $('#kissaudio').get('#kiss').play()
+          $('#kissaudio').get(0).play()
           // $('#cryaudio').get(1).play()
           // $('#cryaudio').get(2).play()
           // $('#eataudio').get(3).play()

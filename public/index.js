@@ -86,7 +86,7 @@ function pixelateCLICK(id, selector, source, pixelated){
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $(#kissaudio).get(0).play()
+          $('#kissaudio').get(0).play()
         }
       }
     })

@@ -48,32 +48,6 @@ pixelateCLICK(22, '#feet','images/23.jpg', 'images/w.png')
 pixelateCLICK(23, '#urinal','images/24.jpg', 'images/x.png')
 pixelateCLICK(24, '#old','images/25.jpg', 'images/y.png')
 
-// audioCLICK(0, '#kissaudio', 'audio/432.mp3')
-// audioCLICK(1, '#cryaudio', 'audio/495.mp3')
-// audioCLICK(2, '#eataudio', 'audio/500.mp3')
-// audioCLICK(3, '#cross1audio','audio/555.mp3')
-// audioCLICK(4, '#cross2audio','audio/680.mp3')
-// audioCLICK(5, '#nunaudio','audio/740.mp3')
-// audioCLICK(6, '#smokeaudio','audio/800.mp3')
-// audioCLICK(7, '#cross3audio','audio/1000.mp3')
-// audioCLICK(8, '#cross4audio','audio/1100.mp3')
-// audioCLICK(9, '#cross5audio','audio/1220.mp3')
-// audioCLICK(10, '#tapeaudio','audio/1365.mp3')
-// audioCLICK(11, '#stupidaudio','audio/1400.mp3')
-// audioCLICK(12, '#gmaaudio','audio/1588.mp3')
-// audioCLICK(13, '#seataudio','audio/1623.mp3')
-// audioCLICK(14, '#skullaudio','audio/1777.mp3')
-// audioCLICK(15, '#patheticaudio','audio/1850.mp3')
-// audioCLICK(16, '#peeaudio','audio/2200.mp3')
-// audioCLICK(17, '#puppetaudio','audio/525.mp3')
-// audioCLICK(18, '#gunaudio','audio/1910.mp3')
-// audioCLICK(19, '#bitchaudio','audio/432.mp3')
-// audioCLICK(20, '#fataudio','audio/1111.mp3')
-// audioCLICK(21, '#bombaudio','audio/989.mp3')
-// audioCLICK(22, '#feetaudio','audio/632.mp3')
-// audioCLICK(23, '#urinalaudio','audio/2288.mp3')
-// audioCLICK(24, '#oldaudio','audio/1300.mp3')
-
 pixelateUPDATE(0, '#kiss','images/1.jpg', 'images/a.png')
 pixelateUPDATE(1, '#cry','images/2.jpg', 'images/b.png')
 pixelateUPDATE(2, '#eat','images/3.jpg', 'images/c.png')
@@ -110,11 +84,60 @@ function pixelateCLICK(id, selector, source, pixelated){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          $('#kissaudio').get(0).pause()
+          $('#kissaudio').get(0).play()
+          $('#cryaudio').get(0).play()
+          $('#eataudio').get(0).play()
+          $('#cross1audio').get(0).play()
+          $('#nunaudio').get(0).play()
+          $('#smokeaudio').get(0).play()
+          $('#cross3audio').get(0).play()
+          $('#tapeaudio').get(0).play()
+          $('#stupidaudio').get(0).play()
+          $('#cross2audio').get(0).play()
+          $('#gmaaudio').get(0).play()
+          $('#seataudio').get(0).play()
+          $('#skullaudio').get(0).play()
+          $('#cross4audio').get(0).play()
+          $('#patheticaudio').get(0).play()
+          $('#peeaudio').get(0).play()
+          $('#puppetaudio').get(0).play()
+          $('#gunaudio').get(0).play()
+          $('#cross5audio').get(0).play()
+          $('#bitchaudio').get(0).play()
+          $('#fataudio').get(0).play()
+          $('#bombaudio').get(0).play()
+          $('#feetaudio').get(0).play()
+          $('#urinalaudio').get(0).play()
+          $('#oldaudio').get(0).play()
+
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $('#kissaudio').get(0).play()
+          $('#kissaudio').get(0).pause()
+          $('#cryaudio').get(0).pause()
+          $('#eat audio').get(0).pause()
+          $('#cross1audio').get(0).pause()
+          $('#nunaudio').get(0).pause()
+          $('#smokeaudio').get(0).pause()
+          $('#cross3audio').get(0).pause()
+          $('#tapeaudio').get(0).pause()
+          $('#stupidaudio').get(0).pause()
+          $('#cross2audio').get(0).pause()
+          $('#gmaaudio').get(0).pause()
+          $('#seataudio').get(0).pause()
+          $('#skullaudio').get(0).pause()
+          $('#cross4audio').get(0).pause()
+          $('#patheticaudio').get(0).pause()
+          $('#peeaudio').get(0).pause()
+          $('#puppetaudio').get(0).pause()
+          $('#gunaudio').get(0).pause()
+          $('#cross5audio').get(0).pause()
+          $('#bitchaudio').get(0).pause()
+          $('#fataudio').get(0).pause()
+          $('#bombaudio').get(0).pause()
+          $('#feetaudio').get(0).pause()
+          $('#urinalaudio').get(0).pause()
+          $('#oldaudio').get(0).pause()
         }
       }
     })
@@ -122,75 +145,7 @@ function pixelateCLICK(id, selector, source, pixelated){
 
   })
 }
-//
-// function audioCLICK(id, selector, source, play){
-//
-//   $(selector).click(function(){ //click ONLY effects click function and not updates for every user
-//     socket.emit('getPosition',id)//find initial position
-//     socket.on('GPmyStatus',function(myStatus){
-//       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
-//         if(myStatus.status === true  ){//is status true? If not, stop here
-//           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
-//           $(selector).get(0).play()
-//           // $('#cryaudio').get(0).play()
-//           // $('#eat audio').get(0).play()
-//           // $('#cross 1audio').get(0).play()
-//           // $('#nunaudio').get(0).play()
-//           // $('#smokeaudio').get(0).play()
-//           // $('#cross3audio').get(0).play()
-//           // $('#tapeaudio').get(0).play()
-//           // $('#stupidaudio').get(0).play()
-//           // $('#cross2audio').get(0).play()
-//           // $('#gmaaudio').get(0).play()
-//           // $('#seataudio').get(0).play()
-//           // $('#skullaudio').get(0).play()
-//           // $('#cross4audio').get(0).play()
-//           // $('#patheticaudio').get(0).play()
-//           // $('#peeaudio').get(0).play()
-//           // $('#puppetaudio').get(0).play()
-//           // $('#gunaudio').get(0).play()
-//           // $('#cross5audio').get(0).play()
-//           // $('#bitchaudio').get(0).play()
-//           // $('#fataudio').get(0).play()
-//           // $('#bombaudio').get(0).play()
-//           // $('#feetaudio').get(0).play()
-//           // $('#urinalaudio').get(0).play()
-//           // $('#oldaudio').get(0).play()
-//
-//         }else if( myStatus.status === false){//is status false? If not, stop here
-//           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
-//           $(selector).get(0).pause()
-//           // $('#cryaudio').get(0).pause()
-//           // $('#eat audio').get(0).pause()
-//           // $('#cross1audio').get(0).pause()
-//           // $('#nunaudio').get(0).pause()
-//           // $('#smokeaudio').get(0).pause()
-//           // $('#cross3audio').get(0).pause()
-//           // $('#tapeaudio').get(0).pause()
-//           // $('#stupidaudio').get(0).pause()
-//           // $('#cross2audio').get(0).pause()
-//           // $('#gmaaudio').get(0).pause()
-//           // $('#seataudio').get(0).pause()
-//           // $('#skullaudio').get(0).pause()
-//           // $('#cross4audio').get(0).pause()
-//           // $('#patheticaudio').get(0).pause()
-//           // $('#peeaudio').get(0).pause()
-//           // $('#puppetaudio').get(0).pause()
-//           // $('#gunaudio').get(0).pause()
-//           // $('#cross5audio').get(0).pause()
-//           // $('#bitchaudio').get(0).pause()
-//           // $('#fataudio').get(0).pause()
-//           // $('#bombaudio').get(0).pause()
-//           // $('#feetaudio').get(0).pause()
-//           // $('#urinalaudio').get(0).pause()
-//           // $('#oldaudio').get(0).pause()
-//         }
-//       }
-//     })
-//
-//
-//   })
-// }
+
 
 
 

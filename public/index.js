@@ -84,6 +84,36 @@ function pixelateCLICK(id, selector, source, pixelated){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
+
+          $('#kissaudio').get(0).pause()
+          $('#cryaudio').get(0).pause()
+          $('#eat audio').get(0).pause()
+          $('#cross1audio').get(0).pause()
+          $('#nunaudio').get(0).pause()
+          $('#smokeaudio').get(0).pause()
+          $('#cross3audio').get(0).pause()
+          $('#tapeaudio').get(0).pause()
+          $('#stupidaudio').get(0).pause()
+          $('#cross2audio').get(0).pause()
+          $('#gmaaudio').get(0).pause()
+          $('#seataudio').get(0).pause()
+          $('#skullaudio').get(0).pause()
+          $('#cross4audio').get(0).pause()
+          $('#patheticaudio').get(0).pause()
+          $('#peeaudio').get(0).pause()
+          $('#puppetaudio').get(0).pause()
+          $('#gunaudio').get(0).pause()
+          $('#cross5audio').get(0).pause()
+          $('#bitchaudio').get(0).pause()
+          $('#fataudio').get(0).pause()
+          $('#bombaudio').get(0).pause()
+          $('#feetaudio').get(0).pause()
+          $('#urinalaudio').get(0).pause()
+          $('#oldaudio').get(0).pause()
+
+        }else if( myStatus.status === false){//is status false? If not, stop here
+          socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
+          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
           $('#kissaudio').get(0).play()
           $('#cryaudio').get(0).play()
           $('#eataudio').get(0).play()
@@ -110,34 +140,6 @@ function pixelateCLICK(id, selector, source, pixelated){
           $('#urinalaudio').get(0).play()
           $('#oldaudio').get(0).play()
 
-        }else if( myStatus.status === false){//is status false? If not, stop here
-          socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
-          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $('#kissaudio').get(0).pause()
-          $('#cryaudio').get(0).pause()
-          $('#eat audio').get(0).pause()
-          $('#cross1audio').get(0).pause()
-          $('#nunaudio').get(0).pause()
-          $('#smokeaudio').get(0).pause()
-          $('#cross3audio').get(0).pause()
-          $('#tapeaudio').get(0).pause()
-          $('#stupidaudio').get(0).pause()
-          $('#cross2audio').get(0).pause()
-          $('#gmaaudio').get(0).pause()
-          $('#seataudio').get(0).pause()
-          $('#skullaudio').get(0).pause()
-          $('#cross4audio').get(0).pause()
-          $('#patheticaudio').get(0).pause()
-          $('#peeaudio').get(0).pause()
-          $('#puppetaudio').get(0).pause()
-          $('#gunaudio').get(0).pause()
-          $('#cross5audio').get(0).pause()
-          $('#bitchaudio').get(0).pause()
-          $('#fataudio').get(0).pause()
-          $('#bombaudio').get(0).pause()
-          $('#feetaudio').get(0).pause()
-          $('#urinalaudio').get(0).pause()
-          $('#oldaudio').get(0).pause()
         }
       }
     })

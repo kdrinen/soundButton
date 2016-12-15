@@ -48,6 +48,32 @@ pixelateCLICK(22, '#feet','images/23.jpg', 'images/w.png')
 pixelateCLICK(23, '#urinal','images/24.jpg', 'images/x.png')
 pixelateCLICK(24, '#old','images/25.jpg', 'images/y.png')
 
+audioCLICK(0, '#kissaudio')
+audioCLICK(1, '#cryaudio')
+audioCLICK(2, '#eataudio')
+audioCLICK(3, '#cross1audio')
+audioCLICK(4, '#cross2audio')
+audioCLICK(5, '#nunaudio')
+audioCLICK(6, '#smokeaudio')
+audioCLICK(7, '#cross3audio')
+audioCLICK(8, '#cross4audio')
+audioCLICK(9, '#cross5audio')
+audioCLICK(10, '#tapeaudio')
+audioCLICK(11, '#stupidaudio')
+audioCLICK(12, '#gmaaudio')
+audioCLICK(13, '#seataudio')
+audioCLICK(14, '#skullaudio')
+audioCLICK(15, '#patheticaudio')
+audioCLICK(16, '#peeaudio')
+audioCLICK(17, '#puppetaudio')
+audioCLICK(18, '#gunaudio')
+audioCLICK(19, '#bitchaudio')
+audioCLICK(20, '#fataudio')
+audioCLICK(21, '#bombaudio')
+audioCLICK(22, '#feetaudio')
+audioCLICK(23, '#urinalaudio')
+audioCLICK(24, '#oldaudio')
+
 pixelateUPDATE(0, '#kiss','images/1.jpg', 'images/a.png')
 pixelateUPDATE(1, '#cry','images/2.jpg', 'images/b.png')
 pixelateUPDATE(2, '#eat','images/3.jpg', 'images/c.png')
@@ -84,6 +110,25 @@ function pixelateCLICK(id, selector, source, pixelated){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
+        }else if( myStatus.status === false){//is status false? If not, stop here
+          socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
+          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
+        }
+      }
+    })
+
+
+  })
+}
+
+function audioCLICK(id, selector, source, play){
+
+  $(selector).click(function(){ //click ONLY effects click function and not updates for every user
+    socket.emit('getPosition',id)//find initial position
+    socket.on('GPmyStatus',function(myStatus){
+      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
+        if(myStatus.status === true  ){//is status true? If not, stop here
+          socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $('#kissaudio').get(0).play()
           $('#cryaudio').get(0).play()
           $('#eat audio').get(0).play()
@@ -112,7 +157,6 @@ function pixelateCLICK(id, selector, source, pixelated){
 
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
-          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
           $('#kissaudio').get(0).pause()
           $('#cryaudio').get(0).pause()
           $('#eat audio').get(0).pause()
@@ -145,7 +189,6 @@ function pixelateCLICK(id, selector, source, pixelated){
 
   })
 }
-
 
 
 

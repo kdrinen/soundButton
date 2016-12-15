@@ -148,7 +148,7 @@ function pixelateCLICK(id, selector, source, pixelated){
 
 
   })
-}
+
 
 function pixelateUPDATE(id, selector, source, pixelated){//Effects what is pushed out to every user...both in real time and on initial page load
 

@@ -86,8 +86,8 @@ function pixelateCLICK(id, selector, source, pixelated){
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
           $('#kissaudio').get(0).play()
           $('#cryaudio').get(0).play()
-          $('#eataudio').get(0).play()
-          $('#cross1audio').get(0).play()
+          $('#eat audio').get(0).play()
+          $('#cross 1audio').get(0).play()
           $('#nunaudio').get(0).play()
           $('#smokeaudio').get(0).play()
           $('#cross3audio').get(0).play()
@@ -115,7 +115,7 @@ function pixelateCLICK(id, selector, source, pixelated){
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
           $('#kissaudio').get(0).pause()
           $('#cryaudio').get(0).pause()
-          $('#eataudio').get(0).pause()
+          $('#eat audio').get(0).pause()
           $('#cross1audio').get(0).pause()
           $('#nunaudio').get(0).pause()
           $('#smokeaudio').get(0).pause()

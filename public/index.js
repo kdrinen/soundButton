@@ -84,9 +84,9 @@ function pixelateCLICK(id, selector, source, pixelated){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          $('#kissaudio').get(0).pause()
-          $('#cryaudio').get(1).pause()
-          $('#eataudio').get(2).pause()
+          $('#kissaudio').get(0, '#kiss','images/1.jpg', 'images/a.png').pause()
+          $('#cryaudio').get(1, '#cry','images/2.jpg', 'images/b.png').pause()
+          $('#eataudio').get(2, '#eat','images/3.jpg', 'images/c.png').pause()
           $('#cross1audio').get(3).pause()
           $('#nunaudio').get(4).pause()
           $('#smokeaudio').get(5).pause()
@@ -113,9 +113,9 @@ function pixelateCLICK(id, selector, source, pixelated){
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          $('#kissaudio').get(0).play()
-          $('#cryaudio').get(1).play()
-          $('#eataudio').get(2).play()
+          $('#kissaudio').get(0, '#kiss','images/1.jpg', 'images/a.png').play()
+          $('#cryaudio').get(1, '#cry','images/2.jpg', 'images/b.png').play()
+          $('#eataudio').get(2, '#eat','images/3.jpg', 'images/c.png').play()
           $('#cross1audio').get(3).play()
           $('#nunaudio').get(4).play()
           $('#smokeaudio').get(5).play()

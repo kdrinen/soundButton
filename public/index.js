@@ -5,9 +5,6 @@ $(function() {
         $(this).find('div').slideToggle();
     });
 });
-
-kissAudio.play();
-
 $(function(){
 
   // var socket = io.connect('http://150.253.89.109:3100')
@@ -77,71 +74,20 @@ buttonUPDATE(23, '#urinal','images/24.jpg', 'images/x.png')
 buttonUPDATE(24, '#old','images/25.jpg', 'images/y.png' )
 
 
-function buttonCLICK(id, selector, source, pixelated){
+function buttonCLICK(id, selector, source, paused){
 
   $(selector).click(function(){ //click ONLY effects click function and not updates for every user
     socket.emit('getPosition',id)//find initial position
     socket.on('GPmyStatus',function(myStatus){
-      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
+      if(myStatus.id === id){//Look for id of image to determine pause vs. play button
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          //
-          // $('#kissaudio').get(0).pause()
-          // $('#cryaudio').get(0).pause()
-          // $('#eat audio').get(0).pause()
-          // $('#cross1audio').get(0).pause()
-          // $('#nunaudio').get(0).pause()
-          // $('#smokeaudio').get(0).pause()
-          // $('#cross3audio').get(0).pause()
-          // $('#tapeaudio').get(0).pause()
-          // $('#stupidaudio').get(0).pause()
-          // $('#cross2audio').get(0).pause()
-          // $('#gmaaudio').get(0).pause()
-          // $('#seataudio').get(0).pause()
-          // $('#skullaudio').get(0).pause()
-          // $('#cross4audio').get(0).pause()
-          // $('#patheticaudio').get(0).pause()
-          // $('#peeaudio').get(0).pause()
-          // $('#puppetaudio').get(0).pause()
-          // $('#gunaudio').get(0).pause()
-          // $('#cross5audio').get(0).pause()
-          // $('#bitchaudio').get(0).pause()
-          // $('#fataudio').get(0).pause()
-          // $('#bombaudio').get(0).pause()
-          // $('#feetaudio').get(0).pause()
-          // $('#urinalaudio').get(0).pause()
-          // $('#oldaudio').get(0).pause()
-
+          $('#kissAudio').get(0).play()
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
-          $(selector).attr('src', pixelated)//Switch image back to false and show pixelated image
-          // $('#kissaudio').get(0).play()
-          // $('#cryaudio').get(0).play()
-          // $('#eataudio').get(0).play()
-          // $('#cross1audio').get(0).play()
-          // $('#nunaudio').get(0).play()
-          // $('#smokeaudio').get(0).play()
-          // $('#cross3audio').get(0).play()
-          // $('#tapeaudio').get(0).play()
-          // $('#stupidaudio').get(0).play()
-          // $('#cross2audio').get(0).play()
-          // $('#gmaaudio').get(0).play()
-          // $('#seataudio').get(0).play()
-          // $('#skullaudio').get(0).play()
-          // $('#cross4audio').get(0).play()
-          // $('#patheticaudio').get(0).play()
-          // $('#peeaudio').get(0).play()
-          // $('#puppetaudio').get(0).play()
-          // $('#gunaudio').get(0).play()
-          // $('#cross5audio').get(0).play()
-          // $('#bitchaudio').get(0).play()
-          // $('#fataudio').get(0).play()
-          // $('#bombaudio').get(0).play()
-          // $('#feetaudio').get(0).play()
-          // $('#urinalaudio').get(0).play()
-          // $('#oldaudio').get(0).play()
-
+          $(selector).attr('src', paused)//Switch image back to false and show paused image
+            $('#kissAudio').get(0).play()
         }
       }
     })
@@ -150,20 +96,19 @@ function buttonCLICK(id, selector, source, pixelated){
   })
 }
 
-
-
-
-
-function buttonUPDATE(id, selector, source, pixelated){//Effects what is pushed out to every user...both in real time and on initial page load
+function buttonUPDATE(id, selector, source, paused){//Effects what is pushed out to every user...both in real time and on initial page load
 
     socket.on('UDmyStatus',function(myStatus){
       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push unpixelated image to all users
         }else if( myStatus.status === false){//If image's status is false...
-          $(selector).attr('src', pixelated)//Push pixelated image to all users
+          $(selector).attr('src', paused)//Push paused image to all users
         }
       }
     })
-}
+  }
+
+
+
 });

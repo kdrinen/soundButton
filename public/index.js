@@ -87,7 +87,7 @@ function buttonCLICK(id, selector, source, paused){
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', paused)//Switch image back to false and show paused image
-            $('#kissAudio').get(0).play()
+            $('#kissAudio').get(0).pause()
         }
       }
     })

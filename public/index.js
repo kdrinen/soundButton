@@ -6,6 +6,8 @@ $(function() {
     });
 });
 
+kissAudio.play();
+
 $(function(){
 
   // var socket = io.connect('http://150.253.89.109:3100')
@@ -84,7 +86,7 @@ function buttonCLICK(id, selector, source, pixelated){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          // 
+          //
           // $('#kissaudio').get(0).pause()
           // $('#cryaudio').get(0).pause()
           // $('#eat audio').get(0).pause()

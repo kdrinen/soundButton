@@ -102,10 +102,10 @@ function buttonUPDATE(id, selector, source, paused){//Effects what is pushed out
       if(myStatus.id === id){//Look for id of image to determine pause vs. play
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push play image to all users
-          $('#kissAudio').get(0).play()
+          $('#audio1').get(0).play()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', paused)//Push paused image to all users
-          $('#kissAudio').get(0).pause()
+          $('#audio1').get(0).pause()
         }
       }
     })

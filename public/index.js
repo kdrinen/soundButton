@@ -99,11 +99,13 @@ function buttonCLICK(id, selector, source, paused){
 function buttonUPDATE(id, selector, source, paused){//Effects what is pushed out to every user...both in real time and on initial page load
 
     socket.on('UDmyStatus',function(myStatus){
-      if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
+      if(myStatus.id === id){//Look for id of image to determine pause vs. play
         if(myStatus.status === true  ){//If image's status is true...
-          $(selector).attr('src', source)//Push unpixelated image to all users
+          $(selector).attr('src', source)//Push play image to all users
+          $('#kissAudio').get(0).play()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', paused)//Push paused image to all users
+          $('#kissAudio').get(0).pause()
         }
       }
     })

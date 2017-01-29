@@ -84,12 +84,12 @@ function buttonCLICK(id, selector, source, paused){
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
           console.log(selector);
-          $(selector + 'Audio').get(0).play()
+          $(selector + 'Audio').get(0).pause()
           console.log(selector + 'Audio');
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', paused)//Switch image back to false and show paused image
-            $(selector + 'Audio').get(0).pause()
+            $(selector + 'Audio').get(0).play()
         }
       }
     })
@@ -104,10 +104,10 @@ function buttonUPDATE(id, selector, source, paused){//Effects what is pushed out
       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push unpixelated image to all users
-          $(selector + 'Audio').get(0).play()
+          $(selector + 'Audio').get(0).pause()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', paused)//Push paused image to all users
-          $(selector + 'Audio').get(0).pause()
+          $(selector + 'Audio').get(0).play()
         }
       }
     })

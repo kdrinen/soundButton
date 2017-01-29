@@ -83,11 +83,11 @@ function buttonCLICK(id, selector, source, paused){
         if(myStatus.status === true  ){//is status true? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:false})//If it is true, update to false
           $(selector).attr('src', source)//Switch image back to true and show unpixelated image
-          $('#audio1').get(0).play()
+          $(selector + 'Audio').get(0).play()
         }else if( myStatus.status === false){//is status false? If not, stop here
           socket.emit('updateMyStatus', {id:id, status:true})//If it is false, update to true
           $(selector).attr('src', paused)//Switch image back to false and show paused image
-            $('#audio1').get(0).pause()
+            $(selector + 'Audio').get(0).pause()
         }
       }
     })
@@ -102,10 +102,10 @@ function buttonUPDATE(id, selector, source, paused){//Effects what is pushed out
       if(myStatus.id === id){//Look for id of image to determine pause vs. play
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push play image to all users
-          $('#audio1').get(0).play()
+          $(selector + 'Audio').get(0).play()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', paused)//Push paused image to all users
-          $('#audio1').get(0).pause()
+          $(selector + 'Audio').get(0).pause()
         }
       }
     })

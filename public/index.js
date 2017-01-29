@@ -104,8 +104,10 @@ function buttonUPDATE(id, selector, source, paused){//Effects what is pushed out
       if(myStatus.id === id){//Look for id of image to determine pixelated vs. unpixelated
         if(myStatus.status === true  ){//If image's status is true...
           $(selector).attr('src', source)//Push unpixelated image to all users
+          $(selector + 'Audio').get(0).play()
         }else if( myStatus.status === false){//If image's status is false...
           $(selector).attr('src', paused)//Push paused image to all users
+          $(selector + 'Audio').get(0).pause()
         }
       }
     })

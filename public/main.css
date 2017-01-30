@@ -42,6 +42,8 @@ h1{color: #13BBBE;
    -webkit-align-content: flex-end;
    align-content: flex-end;}
 
-img{margin: 10px;}
+img{margin: 10px;
+width: 150px;
+height: 150px;}
 
 }
